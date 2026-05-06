@@ -2,7 +2,7 @@
 
 #import the necessary packages
 from gpiozero import Button, MotionSensor
-from picamera import PiCamera
+from picamera import PiCamera2
 from time import sleep
 from signal import pause
 
@@ -10,18 +10,18 @@ from signal import pause
 #a motion sensor and the PiCamera
 button = Button(2)
 pir = MotionSensor(4)
-camera = PiCamera()
+picam2 = PiCamera2()
 
 #start the camera
-camera.rotation = 180
-camera.start_preview()
+picam2.configure(picam2.create_still_configuration())
+picam2.start()
 
 #image image names
 i = 0
 
 #stop the camera when the pushbutton is pressed
 def stop_camera():
-    camera.stop_preview()
+    picam2.stop()
     #exit the program
     exit()
 
@@ -29,7 +29,8 @@ def stop_camera():
 def take_photo():
     global i
     i = i + 1
-    camera.capture('/home/pi/Desktop/image_%s.jpg' % i)
+    filename = f'/home/rpi/Desktop/image_{i}.jpg'
+    picam2.capture_file(filename)
     print('A photo has been taken')
     sleep(10)
 
