@@ -15,6 +15,8 @@
 * **Library**: `gpiozero`, `picamera` (or related)
 * **Tools**: SSH, Visual Studio Code (VS Code)
 
+---
+
 https://github.com/user-attachments/assets/8cba61c7-a67c-4d2c-84f6-dbf7731eb2b0
 
 <table style="width: 100%; border-collapse: collapse; border: none;">
